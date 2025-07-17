@@ -38,7 +38,7 @@ Este projeto é um desafio prático para a vaga de TI 2025 na MERX Energia.
 - Busca por nome de personagem
 - Filtragem de dados a escolha do usuário
 - Card com efeito de destaque 
-- Modal de detalhes ao clicar no card
+- PopUp de detalhes ao clicar no card
 - Interface responsiva e focada em UI/UX
 
 ## Observações

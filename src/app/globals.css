@@ -1,5 +1,20 @@
 body {
-  background-image: url('../../public/Marvel-Capa.svg');
+  background: linear-gradient(270deg, rgba(174, 14, 54, 0.7), rgba(0, 51, 102, 0.7));
+  background-size: 400% 400%;
+  animation: moveGradient 8s ease infinite;
+
+  width: 100%;
   margin: 0;
-  min-height: 100vh;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

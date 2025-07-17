@@ -1,4 +1,4 @@
-export interface Tipos {
+export interface Personagem {
     id: number;
     nome: string;
     idade: number;

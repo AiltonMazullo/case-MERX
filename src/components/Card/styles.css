@@ -1,0 +1,75 @@
+.card-container {
+  background-image: linear-gradient(
+      180deg,
+      rgba(174, 14, 54, 0.7),
+      rgba(0, 51, 102, 0.7)
+    ),
+    url("/Marvel.svg");
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 17vw;
+  height: 35vh;
+  padding: .5rem;
+  margin: 3.1rem;
+  border-radius: 25%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 2.5rem;
+}
+
+.card-container:hover {
+  transform: scale(1.17);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.card-container img {
+  width: auto;
+  height: 50%;
+  object-fit: contain;
+  display: block;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  border-radius: 16px;
+}
+
+.card-container h3 {
+  text-align: center;
+  margin: 0 0 1.6rem 0;
+  font-weight: bold;
+  font-size: auto;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  color: aliceblue;
+}
+
+@media (max-width: 1024px) {
+  .container-lista {
+    display: block;
+    min-width: 50%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3.6rem;
+    gap: 1rem;
+  }
+  .card-container {
+    width: auto;   
+    margin-top: 0.8rem;
+    text-align: center;
+  }
+  .card-container img {
+    width: auto;
+    align-self: center;
+    max-height: 50%;
+  }
+}
+
+

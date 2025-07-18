@@ -170,7 +170,8 @@ export async function getHeroes(): Promise<HeroesProps[]> {
 
 ## 🚀 Deploy
 
-🔗 [Link do projeto em produção](https://seu-link-deploy.vercel.app)
+🔗 [case-merx.vercel.app](https://case-merx.vercel.app)
+🔗 [case-merx-ailtons-projects-e953598b.vercel.app](https://case-merx-ailtons-projects-e953598b.vercel.app)
 
 ---
 

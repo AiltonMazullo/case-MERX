@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-import CardComponent from "@/components/Card";
-import PopUp from "@/components/PopUp";
-import SearchBar from "@/components/SearchBar";
-import FilterButton from "@/components/Button";
-import { HeroesProps } from "@/types";
-import { getHeroes } from "@/services/marvel";
+import CardComponent from "../components/Card";
+import PopUp from "../components/PopUp";
+import SearchBar from "../components/SearchBar";
+import FilterButton from "../components/Button"
+import { HeroesProps } from "../types";
+import { getHeroes } from "../services/marvel"
 
 export default function Home() {
   const [popUpOpen, setPopUpOpen] = useState(false);

@@ -21,6 +21,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s, box-shadow 0.2s;
   margin-top: 2.5rem;
+  
 }
 
 .card-container:hover {
@@ -51,9 +52,11 @@
 
 @media (max-width: 1024px) {
   .container-lista {
+    right: 0;
+    left: 0;
     display: block;
     align-items: center;
-    min-width: 50%;
+    min-width: 40%;
     width: auto;
     height: auto;
     flex-direction: column;

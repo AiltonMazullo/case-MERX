@@ -1,13 +1,11 @@
 import React from "react";
 import "./styles.css";
-import { ButtonProps } from "@/types";
+import { FilterButtonProps } from "@/types";
 
-
-export default function FilterButton({ onClick }: ButtonProps) {
+export default function FilterButton({ active, onClick }: FilterButtonProps) {
   return (
-    <button className="btn-filter" onClick={onClick}>
-      <img src="/filtro.png" alt="Botão de filtrar personagens" className="btn-filter-icon" />
-      <span>Filtrar personagens</span>
-    </button>
+    <button className="filter-btn" onClick={onClick}>
+    {active ? "Remover ordem alfabética" : "Filtrar por ordem alfabética"}
+  </button>
   );
 }

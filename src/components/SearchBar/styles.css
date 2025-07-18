@@ -1,0 +1,29 @@
+.input-busca {
+  width: 100%;
+  max-width: 20vw;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 2px solid #e62429; /* Vermelho Marvel */
+  border-radius: 30px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #fff url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 111.41-1.41l4.38 4.37a1 1 0 01-1.42 1.42l-4.37-4.38zM8 14a6 6 0 100-12 6 6 0 000 12z"/></svg>') no-repeat right 0.8rem center;
+  background-size: 1.2rem;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(230,36,41,0.08);
+}
+
+.input-busca:focus {
+  border-color: #222;
+  box-shadow: 0 0 0 2px #e6242940;
+}
+
+@media (max-width: 1024px) {
+  .input-busca {
+    right: 0;
+    left: 0;
+    width: auto;
+    max-width: 50vw;
+    font-size: 0.95rem;
+  }
+}

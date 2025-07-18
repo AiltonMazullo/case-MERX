@@ -22,3 +22,34 @@
   margin: 0;
   padding: 0;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 1.5rem 0;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .container-lista {
+    gap: 1.2rem;
+  }
+  .container-lista li {
+    min-width: 220px;
+    max-width: 45vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-lista {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+  }
+  .container-lista li {
+    width: 100%;
+    max-width: 95vw;
+    min-width: 0;
+  }
+}

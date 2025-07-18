@@ -1,4 +1,4 @@
-import { heroes } from "@/Mock/heroes";
+import { heroes } from "@/mock/heroes";
 import { HeroesProps } from "@/types";
 
 export async function getHeroes(): Promise<HeroesProps[]> {
@@ -18,13 +18,4 @@ export async function searchHeroesByName(name: string): Promise<HeroesProps[]> {
       resolve(filteredHeroes);
     }, 500);
   });
-}
-
-export async function getHeroesById(id: number): Promise<HeroesProps | null> {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const searchHeroesById = heroes.find((hero) => hero.id === id);
-            resolve(searchHeroesById || null);
-        }, 500);
-    });
 }

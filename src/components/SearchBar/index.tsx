@@ -1,4 +1,5 @@
 import React from "react";
+import './styles.css';
 import { SearchBarProps } from "@/types";
 
 export default function SearchBar({ value, onChange, placeholder }: SearchBarProps) {
@@ -8,7 +9,7 @@ export default function SearchBar({ value, onChange, placeholder }: SearchBarPro
       value={value}
       onChange={event => onChange(event.target.value)}
       placeholder={placeholder || "Pesquisar..."}
-      className="input-barra-pesquisa"
+      className="input-busca"
     />
   );
 }

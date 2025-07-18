@@ -19,6 +19,7 @@ export interface SearchBarProps {
   placeholder?: string;
 }
 
-export interface ButtonProps {
+export interface FilterButtonProps {
+  active: boolean;
   onClick: () => void;
 }

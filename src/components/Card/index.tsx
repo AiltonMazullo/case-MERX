@@ -1,7 +1,7 @@
 'use client';
 import React from "react";
 import './styles.css'
-import { CardProps } from "../../types";
+import { CardProps } from "@/types";
 
 export default function CardComponent({ hero, onClick }: CardProps) {
   return (

@@ -1,5 +1,5 @@
-import { heroes } from "../mock/heroes"
-import { HeroesProps } from "../types";
+import { heroes } from "@/data/heroes";
+import { HeroesProps } from "@/types";
 
 export async function getHeroes(): Promise<HeroesProps[]> {
   return new Promise((resolve) => {

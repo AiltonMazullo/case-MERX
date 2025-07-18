@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import './styles.css';
-import { PopUpProps } from "../../types";
+import { PopUpProps } from "@/types";
 
 export default function PopUp({ hero, onClose }: PopUpProps) {
     

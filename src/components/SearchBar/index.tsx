@@ -1,6 +1,6 @@
 import React from "react";
 import './styles.css';
-import { SearchBarProps } from "../../types";
+import { SearchBarProps } from "@/types";
 
 export default function SearchBar({ value, onChange, placeholder }: SearchBarProps) {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import { FilterButtonProps } from "../../types";
+import { FilterButtonProps } from "@/types";
 
 export default function FilterButton({ active, onClick }: FilterButtonProps) {
   return (

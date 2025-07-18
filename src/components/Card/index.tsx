@@ -1,18 +1,13 @@
 'use client';
 import React from "react";
 import './styles.css'
-import { Personagem } from "@/types";
+import { CardProps } from "@/types";
 
-interface CardProps {
-  personagem: Personagem;
-  onClick?: () => void;
-}
-
-export default function CardComponent({ personagem, onClick }: CardProps) {
+export default function CardComponent({ hero, onClick }: CardProps) {
   return (
     <div className="card-container" onClick={onClick}>
-      <img src={personagem.foto} alt={personagem.nome} />
-      <h3>{personagem.nome}</h3>
+      <img src={hero.image} alt={hero.name} />
+      <h3>{hero.name}</h3>
     </div>
   );
 }

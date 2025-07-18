@@ -1,0 +1,37 @@
+.btn-filter {
+  background: #fff;
+  border: 2px solid #e62429;
+  border-radius: 50%;
+  padding: 0.6rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.btn-filter:hover,
+.btn-filter:focus {
+  background: #e62429;
+  border-color: #b71c1c;
+  box-shadow: 0 4px 16px rgba(230, 36, 41, 0.15);
+}
+
+.btn-filter-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

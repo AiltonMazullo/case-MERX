@@ -14,9 +14,9 @@ Este projeto é um desafio prático para a vaga de TI 2025 na MERX Energia.
 ## 📁 Estrutura do Projeto
 
 - `src/mock/heroes.ts`: Arquivo com os dados mockados dos personagens.
-- `src/services/marvel.ts`: Serviço que simula uma API e buscar lógica da busca dos personagens pelo nome.
+- `src/services/marvel.ts`: Serviço que simula uma API e lógica da busca dos personagens pelo nome.
 - `src/types/index.ts`: Tipos TypeScript para garantir segurança e clareza nos dados.
-- `src/components/`: Componentes reutilizáveis como CCard, PopUp, SearchBar e FilterButton.
+- `src/components/`: Componentes reutilizáveis como Card, PopUp, SearchBar e FilterButton.
 - `src/app/`: Página e lógica da aplicação consumo dos dados.
 
 ---

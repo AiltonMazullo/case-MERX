@@ -1,6 +1,5 @@
-// app/api/marvel/[id]/route.ts
+/*
 import { NextResponse } from "next/server";
-import md5 from "md5";
 
 const url = "https://gateway.marvel.com/v1/public/characters";
 const publicKey = process.env.MARVEL_PUBLIC_KEY!;
@@ -26,3 +25,4 @@ export async function GET() {
     );
   }
 }
+*/

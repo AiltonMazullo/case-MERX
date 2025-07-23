@@ -13,7 +13,9 @@ export default function Home() {
   const [heroSelected, setHeroSelected] = useState<HeroesProps | null>(null);
   const [heroes, setHeroes] = useState<HeroesProps[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredName, setFilteredName] = useState(false);
+
+  const [sortActive, setSortActive] = useState(false);
+  const [sortOrder, setSortOrder] = useState<"AZ" | "ZA">("AZ");
 
   useEffect(() => {
     async function fetchHeroes() {
@@ -37,10 +39,14 @@ export default function Home() {
     hero.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (filteredName) {
-    filteredHeroes = [...filteredHeroes].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
+  if (sortActive) {
+    filteredHeroes = [...filteredHeroes].sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      return sortOrder === "AZ"
+        ? nameA.localeCompare(nameB)
+        : nameB.localeCompare(nameA);
+    });
   }
 
   return (
@@ -50,11 +56,22 @@ export default function Home() {
         onChange={setSearchTerm}
         placeholder="Buscar personagem..."
       />
+
       <FilterButton
-        active={filteredName}
-        onClick={() => setFilteredName((prev) => !prev)}
+        active={sortActive}
+        order={sortOrder}
+        onClick={(order) => {
+          if (sortActive && order === sortOrder) {
+            setSortActive(false); // desativa filtro
+          } else {
+            setSortActive(true);
+            setSortOrder(order);
+          }
+        }}
       />
+
       {filteredHeroes.length === 0 && <p>Nenhum personagem encontrado.</p>}
+
       <ul className="container-lista">
         {filteredHeroes.map((hero) => (
           <li key={hero.id}>
@@ -62,6 +79,7 @@ export default function Home() {
           </li>
         ))}
       </ul>
+
       {popUpOpen && heroSelected && (
         <PopUp hero={heroSelected} onClose={() => setPopUpOpen(false)} />
       )}

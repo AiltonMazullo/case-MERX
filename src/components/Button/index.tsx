@@ -2,10 +2,22 @@ import React from "react";
 import "./styles.css";
 import { FilterButtonProps } from "@/types";
 
-export default function FilterButton({ active, onClick }: FilterButtonProps) {
+export default function FilterButton({ active, order, onClick }: FilterButtonProps) {
   return (
-    <button className="filter-btn" onClick={onClick}>
-    {active ? "Remover ordem alfabética" : "Filtrar por ordem alfabética"}
-  </button>
+    <div className="filter-toggle">
+      <button
+        className={`filter-btn ${active && order === "AZ" ? "active" : ""}`}
+        onClick={() => onClick("AZ")}
+      >
+        A → Z
+      </button>
+
+      <button
+        className={`filter-btn ${active && order === "ZA" ? "active" : ""}`}
+        onClick={() => onClick("ZA")}
+      >
+        Z → A
+      </button>
+    </div>
   );
 }

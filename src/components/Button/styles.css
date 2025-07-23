@@ -1,25 +1,43 @@
-.filter-btn {
-  background: #e62429;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 0.5rem 1.2rem;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 1rem;
-  transition: background 0.2s;
-}
-.filter-btn:hover {
-  background: #b71c1c;
+/* Components/Button/styles.css */
+
+.filter-toggle {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
-@media (max-width: 1024px) {
+.filter-btn {
+  background-color: #f1f1f1;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+  background-color: #0070f3;
+  color: white;
+  border-color: #0070f3;
+}
+
+@media (max-width: 600px) {
+  .filter-toggle {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .filter-btn {
-    right: 0;
-    left: 0;
-    width: auto;
-    max-width: 50vw;
-    padding: 0.75rem 0.5rem;
-    border-radius: 16px;
+    width: 100%;
+    text-align: center;
   }
 }

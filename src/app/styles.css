@@ -33,23 +33,28 @@
 
 @media (max-width: 1024px) {
   .container-lista {
-    gap: 1.2rem;
+    gap: 1rem; 
+    justify-content: center; 
+    flex-wrap: wrap; 
   }
   .container-lista li {
-    min-width: 220px;
+    flex: 1 1 220px; 
     max-width: 45vw;
+    min-width: 180px; 
+    box-sizing: border-box; 
   }
 }
 
 @media (max-width: 600px) {
   .container-lista {
     flex-direction: column;
-    gap: 0.7rem;
-    align-items: center;
+    gap: 0.8rem;
+    align-items: stretch; 
+    padding: 0 1rem; 
   }
   .container-lista li {
     width: 100%;
-    max-width: 95vw;
-    min-width: 0;
+    max-width: 100%; 
+    min-width: auto; 
   }
 }

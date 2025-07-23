@@ -44,7 +44,7 @@ export const heroes = [
     name: "Homem-Aranha",
     age: 21,
     biography:
-      "Peter Parker ganhou poderes aracnídeos após ser picado por uma aranha radioativa. Usa suas habilages para proteger Nova York.",
+      "Peter Parker ganhou poderes aracnídeos após ser picado por uma aranha radioativa. Usa suas habilidades para proteger Nova York.",
     image: "/Spider-Man.svg"
   },
   {
@@ -52,7 +52,7 @@ export const heroes = [
     name: "Pantera Negra",
     age: 35,
     biography:
-      "T'Challa é o rei de Wakanda e o Pantera Negra, combinando habilages de combate, inteligência e tecnologia avançada.",
+      "T'Challa é o rei de Wakanda e o Pantera Negra, combinando habilidades de combate, inteligência e tecnologia avançada.",
     image: "/BlackPanther.svg"
   },
   {

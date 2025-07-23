@@ -2,6 +2,21 @@
 
 Este projeto é um desafio prático para a vaga de TI 2025 na MERX Energia.
 
+## 🔒 Segurança das Chaves de API
+
+As chaves da Marvel (public e private key) **NÃO estão no código-fonte**. Elas ficam protegidas no arquivo `.env.local`, que não é versionado (está no `.gitignore`).
+
+Isso garante que nenhuma credencial sensível seja exposta no repositório, seguindo as melhores práticas de segurança para projetos Node.js/Next.js.
+
+Para rodar com a Marvel API oficial, basta criar um arquivo `.env.local` na raiz do projeto com:
+
+```
+MARVEL_PUBLIC_KEY=sua_public_key
+MARVEL_PRIVATE_KEY=sua_private_key
+```
+
+---
+
 ## 🧪 Tecnologias Utilizadas
 
 - [Next.js](https://nextjs.org/)
@@ -54,7 +69,7 @@ yarn dev
 
 - [x] Listagem de personagens com layout responsivo
 - [x] Busca por nome
-- [x] filtro de ordem alfabética
+- [x] filtro de ordem alfabética ( A - Z || Z - A)
 - [x] Exibição de detalhes em modal
 - [x] Simulação de chamadas à API (com mock + filtro + erro tratado)
 - [x] Código limpo, modular e tipado com TypeScript
@@ -63,107 +78,46 @@ yarn dev
 
 ## 💡 Decisões Técnicas
 
-Devido à instabilidade da **API oficial da Marvel** (erros de autenticação e restrições de CORS), optei por simular uma API e **utilizar dados mockados, mas antes criei uma API local para mostrar a lógica utilizada**.
+Devido à instabilidade da **API oficial da Marvel** (erros de autenticação e restrições de CORS), optei por **utilizar dados mockados, mas irei deixar a lógica utilizada abaixo (está no arquivo - 'api.ts'):**.
 
 ---
 
 ## 🧩 Exemplos de Código
 
 ```ts
-// backend/db.json
-[
-  {
-    heroes: [
-      {
-        id: 1,
-        name: "Homem de Ferro",
-        age: 48,
-        biography:
-          "Gênio, bilionário, playboy, filantropo. Tony Stark criou a armadura do Homem de Ferro para salvar sua vida e depois usou sua tecnologia para proteger o mundo.",
-        image: "/Iron-Man.svg",
-      },
-      {
-        id: 2,
-        name: "Capitão América",
-        age: 105,
-        biography:
-          "Steve Rogers foi transformado no supersoldado Capitão América durante a Segunda Guerra Mundial. É símbolo de coragem, justiça e liderança.",
-        image: "/CapitainAmerica.svg",
-      },
-      {
-        id: 3,
-        name: "Viúva Negra",
-        age: 35,
-        biography:
-          "Natasha Romanoff é uma das espiãs mais habilidosas do mundo, com passado misterioso e grande lealdade aos Vingadores.",
-        image: "/BlackWidow.svg",
-      },
-      {
-        id: 4,
-        name: "Thor",
-        age: 1500,
-        biography:
-          "Deus do Trovão, filho de Odin, Thor é um dos mais poderosos defensores da Terra e de Asgard, empunhando o martelo Mjolnir.",
-        image: "/Thor.svg",
-      },
-      {
-        id: 5,
-        name: "Hulk",
-        age: 49,
-        biography:
-          "Após ser exposto à radiação gama, Bruce Banner se transforma no incrível Hulk, uma força imparável movida pela raiva.",
-        image: "/Hulk.svg",
-      },
-      {
-        id: 6,
-        name: "Homem-Aranha",
-        age: 21,
-        biography:
-          "Peter Parker ganhou poderes aracnídeos após ser picado por uma aranha radioativa. Usa suas habilages para proteger Nova York.",
-        image: "/Spider-Man.svg",
-      },
-      {
-        id: 7,
-        name: "Pantera Negra",
-        age: 35,
-        biography:
-          "T'Challa é o rei de Wakanda e o Pantera Negra, combinando habilages de combate, inteligência e tecnologia avançada.",
-        image: "/BlackPanther.svg",
-      },
-      {
-        id: 8,
-        name: "Doutor Estranho",
-        age: 42,
-        biography:
-          "Stephen Strange era um cirurgião brilhante que, após um acidente, se tornou o Mago Supremo e protetor da Terra contra ameaças místicas.",
-        image: "/DoctorStrange.svg",
-      },
-    ],
-  },
-];
-
 // src/services/api.ts
 
-import axios from "axios";
+import { NextResponse } from "next/server";
+import md5 from "md5";
 
-export const api = axios.create({
-  baseURL: "http://localhost:3001",
-});
+const url = "https://gateway.marvel.com/v1/public/characters";
+const publicKey = process.env.MARVEL_PUBLIC_KEY!;
+const privateKey = process.env.MARVEL_PRIVATE_KEY!;
+const ts = Date.now().toString();
+const hash = md5(ts + privateKey + publicKey);
 
-// src/services/marvel.ts
+export async function GET() {
+  console.log("TimeStamp:", ts);
+  console.log("HASH:", hash);
 
-import { api } from "./api";
-import { HeroesProps } from "@/types";
-
-export async function getHeroes(): Promise<HeroesProps[]> {
   try {
-    const res = await api.get("/heroes");
-    return res.data;
+    const res = `${url}?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    const response = await fetch(res);
+    const data = await response.json();
+
+    if (!response.ok) {
+      return NextResponse.json(data, { status: response.status });
+    }
+
+    return NextResponse.json(data.data.results[0]);
   } catch (err) {
-    console.error("Erro ao buscar heróis:", err);
-    return [];
+    return NextResponse.json(
+      { error: "Erro ao buscar dados da Marvel.", err },
+      { status: 500 }
+    );
   }
 }
+
 ```
 
 ---

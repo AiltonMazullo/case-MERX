@@ -1,4 +1,3 @@
-/* Fundo escurecido e centralização do modal */
 .container-popup {
   position: fixed;
   top: 0;
@@ -100,21 +99,54 @@
 
 @media (max-width: 1024px) {
   .container-popup-content {
-    padding: 1rem;
-    width: 30vw;
-    height: auto;
+    padding: 1rem 1.5rem;
+    max-width: 90vw;    
+    width: auto;        
+    max-height: 80vh;   
     display: flex;
-    flex-direction: center;
+    flex-direction: column; 
+    align-items: center;
+    overflow-y: auto;
   }
   .image-popup {
-    width: 50%;
+    width: 40vw;   
+    max-width: 150px; 
     height: auto;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .botao {
-    top: .5rem;
-    left: .5rem;
-    padding: .4rem .8rem;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.4rem 0.8rem;
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-popup-content {
+    max-width: 95vw;
+    padding: 1rem;
+    width: 95vw;
+    max-height: 75vh;
+  }
+  .image-popup {
+    width: 35vw;
+    max-width: 120px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .container-popup-content h2 {
+    font-size: 1.5rem;
+  }
+  .container-popup-content p {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  .botao {
+    top: 0.3rem;
+    left: 0.3rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem;
   }
 }
